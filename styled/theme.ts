@@ -7,7 +7,11 @@ const theme = {
     gray: "#777776",
   },
   breakpoints: {
-    xs: `(max-width: ${575}px)`,
+    sm: `(max-width: 576px)`,
+    md: `(max-width: 768px)`,
+    lg: `(max-width: 992px)`,
+    Exl: `(max-width: 1200px)`,
+    xxl: `(max-width: 1400px)`,
   },
 };
 

@@ -9,4 +9,5 @@ export const Wrapper = styled.div`
 
 export const Main = styled.main`
   flex-grow: 1;
+  background: ${props => props.theme.colors.white};
 `;

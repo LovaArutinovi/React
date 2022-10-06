@@ -1,6 +1,6 @@
 import MainContainer from "components/containers/MainContainer";
 import { withLayout } from "layout/Layout";
-import styled from "styled-components";
+import { Main } from "./index.style";
 
 function Home(): JSX.Element {
   return (
@@ -11,5 +11,3 @@ function Home(): JSX.Element {
 }
 
 export default withLayout(Home);
-
-export const Main = styled.div``;

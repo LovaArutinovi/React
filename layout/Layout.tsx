@@ -7,6 +7,7 @@ import {
 import { Footer } from "./footer/Footer";
 import Header from "./headers/Header";
 import { Main, Wrapper } from "./Layout.style";
+import ScrollBar from "./ScrollBar/ScrollBar";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,11 +16,13 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
-      <Wrapper>
-        <Header />
-        <Main>{children}</Main>
-        <Footer />
-      </Wrapper>
+      <ScrollBar>
+        <Wrapper>
+          <Header />
+          <Main>{children}</Main>
+          <Footer />
+        </Wrapper>
+      </ScrollBar>
     </>
   );
 };
