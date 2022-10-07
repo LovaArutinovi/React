@@ -12,17 +12,21 @@
   },
   "dependencies": {
     "@types/react-custom-scrollbars": "^4.0.10",
+    "@types/react-dom": "^18.0.6",
     "@types/styled-components": "^5.1.25",
     "axios": "^0.27.2",
     "date-fns": "^2.29.2",
     "framer-motion": "^6.3.11",
+    "lightgallery": "^2.6.1",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "18.1.0",
     "react-h5-audio-player": "^3.8.4",
     "react-modal-sheet": "^1.5.2",
-    "react-scrollbars-custom": "^4.1.0"
+    "react-scrollbars-custom": "^4.1.0",
+    "react-slick": "^0.29.0",
+    "swiper": "^8.4.3"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",

@@ -30,6 +30,7 @@ class MyDocument extends Document {
           <div className="wrapper">
             <Main />
           </div>
+          <div id="modal-portal"></div>
           <NextScript />
         </body>
       </Html>

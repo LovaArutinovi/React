@@ -2,6 +2,8 @@ import { ReactNode, useEffect, useState } from "react";
 import styled from "styled-components";
 import theme from "../../styled/theme";
 import { AnimatePresence, motion } from "framer-motion";
+import { ModalPortal } from "layout/Portals/ModalPortal";
+import { IsActive } from "untils/PopularInterfaces";
 
 interface ModalProps {
   children: ReactNode;
@@ -58,18 +60,18 @@ const Modal: React.FC<ModalProps> = (props): JSX.Element => {
     };
   }, []);
   return (
-    <>
-      <AnimatePresence // Disable any initial animations on children that
-        // are present when the component is first rendered
-        initial={false}
-        // Only render one component at a time.
-        // The exiting component will finish its exit
-        // animation before entering component is rendered
-        exitBeforeEnter={true}
-        // Fires when all exiting nodes have completed animating out
-        onExitComplete={() => null}
-      >
-        {props.isOpen && (
+    <AnimatePresence // Disable any initial animations on children that
+      // are present when the component is first rendered
+      initial={false}
+      // Only render one component at a time.
+      // The exiting component will finish its exit
+      // animation before entering component is rendered
+      exitBeforeEnter={true}
+      // Fires when all exiting nodes have completed animating out
+      onExitComplete={() => null}
+    >
+      {props.isOpen && (
+        <ModalPortal>
           <ModalBox
             variants={parent}
             initial="hidden"
@@ -83,6 +85,7 @@ const Modal: React.FC<ModalProps> = (props): JSX.Element => {
                 props.closeFunction(false);
                 e.stopPropagation();
               }}
+              active={props.isOpen}
             ></ModalCloseBg>
             <ModalBody
               variants={child}
@@ -94,9 +97,9 @@ const Modal: React.FC<ModalProps> = (props): JSX.Element => {
               {props.children}
             </ModalBody>
           </ModalBox>
-        )}
-      </AnimatePresence>
-    </>
+        </ModalPortal>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -112,10 +115,9 @@ const ModalBox = styled(motion.div)<BasicProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  transition: all 0.5s;
+  transition: all 0.2s;
 `;
-const ModalCloseBg = styled.div`
+const ModalCloseBg = styled.div<IsActive>`
   position: absolute;
   top: 0;
   right: 0;
@@ -123,8 +125,15 @@ const ModalCloseBg = styled.div`
   left: 0;
 
   cursor: pointer;
-  background: ${theme.colors.black};
-  opacity: 0.2;
+  background: rgba(0, 0, 0, 0.46);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px)
+    ${(props) => (props.active ? "opacity(1)" : "opacity(0)")};
+  -webkit-backdrop-filter: blur(8px)
+    ${(props) => (props.active ? "opacity(1)" : "opacity(0)")};
+  border: 1px solid rgba(0, 0, 0, 0.51);
+  /* opacity: 0.2; */
+  transition: backdrop-filter 0.2s;
   z-index: -1;
 `;
 const ModalBody = styled(motion.div)`

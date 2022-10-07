@@ -4,10 +4,9 @@ import {
   HTMLAttributes,
   ReactNode,
 } from "react";
-import { Footer } from "./footer/Footer";
-import Header from "./headers/Header";
+import { Footer } from "./Footer/Footer";
+import Header from "./Headers/Header";
 import { Main, Wrapper } from "./Layout.style";
-import ScrollBar from "./ScrollBar/ScrollBar";
 
 interface LayoutProps {
   children: ReactNode;
@@ -16,13 +15,11 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
     <>
-      <ScrollBar>
-        <Wrapper>
-          <Header />
-          <Main>{children}</Main>
-          <Footer />
-        </Wrapper>
-      </ScrollBar>
+      <Wrapper>
+        <Header />
+        <Main>{children}</Main>
+        <Footer />
+      </Wrapper>
     </>
   );
 };
