@@ -53,12 +53,14 @@ const child = {
 const Modal: React.FC<ModalProps> = (props): JSX.Element => {
   useEffect(() => {
     if (typeof window != undefined) {
-      document.querySelector("body")?.classList.add("modal-open");
+      if (props.isOpen) {
+        document.querySelector("body")?.classList.add("modal-open");
+      }
     }
     return () => {
       document.querySelector("body")?.classList.remove("modal-open");
     };
-  }, []);
+  });
   return (
     <AnimatePresence // Disable any initial animations on children that
       // are present when the component is first rendered

@@ -35,6 +35,16 @@ a {
   font-family: inherit;
 }
 
+#wrapper{
+  position: relative;
+}
+
+/* modals portal */
+
+#modal-portal{
+  z-index: 999;
+  position: relative;
+}
 /***** scrollbar *****/
 
 .thumb-vertical {

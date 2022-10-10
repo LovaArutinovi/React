@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FooterWrapper = styled.footer`
    padding: 93px 0 47px;
-   /* background: ${props => props.theme.colors.primary}; */
+   background: ${props => props.theme.colors.primary};
    @media ${props => props.theme.breakpoints.md}{
       padding: 50px 0 30px;
 
